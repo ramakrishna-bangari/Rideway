@@ -1,0 +1,22 @@
+server:
+  port: ${SERVER_PORT:8084}
+
+spring:
+  application:
+    name: identity-service
+  config:
+    import: "configserver:${CONFIG_SERVER_URL:http://localhost:8888}"
+  servlet:
+    multipart:
+      max-file-size: 20MB
+      max-request-size: 20MB
+      enabled: true
+
+management:
+  tracing:
+    enabled: false
+  zipkin:
+    tracing:
+      endpoint: ""
+
+
